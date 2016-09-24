@@ -34,7 +34,7 @@ h1 {
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #999;
+  color: #373737;
   line-height: 29px;
   padding: 10px;
 }
@@ -65,7 +65,7 @@ h5 {
 .date-text {
   font-style: italic;
   font-size: 14px;
-  color: #999;
+  color: #4d4d4d;
   line-height: 16px;
   float: left;
 }
@@ -73,7 +73,7 @@ h5 {
 .location-text {
   font-style: italic;
   font-size: 14px;
-  color: #999;
+  color: #4d4d4d;
   line-height: 16px;
   float: right;
 
@@ -86,7 +86,7 @@ p {
 }
 
 a {
-  color: #1199c3;
+  color: #1cbaeb;
   text-decoration: none;
   margin-top: 10px;
   display: block;
@@ -100,6 +100,11 @@ a {
 }
 
 #skills-h3 {
+  color: #f5ae23;
+  display: none;
+}
+
+.languages-h3 {
   color: #f5ae23;
   display: none;
 }
@@ -124,12 +129,37 @@ a {
 }
 
 .dark-gray {
-  background-color: #4a4a4a;
+  background-color: #747474;
 }
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #808080;
+}
+
+#projects {
+  background-color: #808080;
+
+}
+
+#topNav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+#header {
+  margin-top: 52px;
+}
+
+.flex-box1 {
+  display: -webkit-flex;
+  display; flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: #747474;
 }
 
 .flex-box {
@@ -141,12 +171,7 @@ a {
   padding: 10px;
 }
 
-.flex-column {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  padding: 10px;
-}
+
 
 .center-content {
   padding: 2.5% 5%;
@@ -205,12 +230,14 @@ span {
   display: block;
   height: 100%;
   margin: 0 5%;
+
 }
 
 #mapDiv {
   height: 400px;
   width: 100%;
   padding-bottom: 5%;
+  background-color: #808080;
 }
 
 @media only screen and (min-width: 750px) {
