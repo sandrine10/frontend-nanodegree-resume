@@ -26,8 +26,11 @@ var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</sp
 var HTMLbioPic = '<img src="%data%" class="biopic">';
 var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
 
-var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-column"></ul>';
+var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
+
+var HTMLlanguagesStart = '<h3 id="skills-h3">Languages:</h3><ul id="languages" class="flex-box"></ul>';
+var HTMLlanguages = '<li class="flex-item"><span class="white-text">%data%</span></li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
 var HTMLworkEmployer = '<a href="#">%data%';
@@ -60,20 +63,19 @@ var googleMap = '<div id="map"></div>';
 
 
 /*
-The Internationalize Names challenge found in the lesson Flow Control from JavaScript Basics requires you to create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
+The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
 */
 $(document).ready(function() {
   $('button').click(function() {
-    var $name = $('#name');
-    var iName = inName($name.text()) || function(){};
-    $name.html(iName);
+    var iName = inName() || function(){};
+    $('#name').html(iName);
   });
 });
 
 /*
-The next few lines about clicks are for the Collecting Click Locations quiz in the lesson Flow Control from JavaScript Basics.
+The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
 */
-var clickLocations = [];
+clickLocations = [];
 
 function logClicks(x,y) {
   clickLocations.push(
@@ -87,8 +89,11 @@ function logClicks(x,y) {
 
 $(document).click(function(loc) {
   // your code goes here!
-});
+  var x = loc.pageX;
+  var y = loc.pageY;
 
+  logClicks(x,y);
+});
 
 
 /*
@@ -177,7 +182,8 @@ function initializeMap() {
 
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
-      // your code goes here!
+      infoWindow.open(map, marker);
+
     });
 
     // this is where the pin actually gets added to the map.
@@ -216,6 +222,7 @@ function initializeMap() {
         query: place
       };
 
+
       // Actually searches the Google Maps API for location data and runs the callback
       // function with the search results after each search.
       service.textSearch(request, callback);
@@ -239,11 +246,11 @@ Uncomment the code below when you're ready to implement a Google Map!
 */
 
 // Calls the initializeMap() function when the page loads
-//window.addEventListener('load', initializeMap);
+window.addEventListener('load', initializeMap);
 
 // Vanilla JS way to listen for resizing of the window
 // and adjust map bounds
-//window.addEventListener('resize', function(e) {
+window.addEventListener('resize', function(e) {
   //Make sure the map bounds get updated on page resize
-//  map.fitBounds(mapBounds);
-//});
+    map.fitBounds(mapBounds);
+});
